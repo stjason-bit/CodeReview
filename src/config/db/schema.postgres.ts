@@ -507,6 +507,109 @@ export const aiTask = table(
   ]
 );
 
+export const codeReviewJob = table(
+  'code_review_job',
+  {
+    id: text('id').primaryKey(),
+    userId: text('user_id')
+      .notNull()
+      .references(() => user.id, { onDelete: 'cascade' }),
+    status: text('status').notNull(),
+    mode: text('mode').notNull(),
+    archiveName: text('archive_name').notNull(),
+    archiveSize: integer('archive_size').notNull().default(0),
+    fileCount: integer('file_count').notNull().default(0),
+    includedFileCount: integer('included_file_count').notNull().default(0),
+    ignoredFileCount: integer('ignored_file_count').notNull().default(0),
+    detectedStack: text('detected_stack'),
+    model: text('model').notNull(),
+    inputTokens: integer('input_tokens').notNull().default(0),
+    outputTokens: integer('output_tokens').notNull().default(0),
+    costEstimate: integer('cost_estimate').notNull().default(0),
+    errorMessage: text('error_message'),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at')
+      .$onUpdate(() => /* @__PURE__ */ new Date())
+      .notNull(),
+    completedAt: timestamp('completed_at'),
+  },
+  (table) => [
+    index('idx_code_review_job_user_status').on(table.userId, table.status),
+    index('idx_code_review_job_created_at').on(table.createdAt),
+  ]
+);
+
+export const codeReviewFile = table(
+  'code_review_file',
+  {
+    id: text('id').primaryKey(),
+    jobId: text('job_id')
+      .notNull()
+      .references(() => codeReviewJob.id, { onDelete: 'cascade' }),
+    path: text('path').notNull(),
+    language: text('language').notNull().default('text'),
+    sizeBytes: integer('size_bytes').notNull().default(0),
+    lineCount: integer('line_count').notNull().default(0),
+    hash: text('hash').notNull().default(''),
+    included: boolean('included').notNull().default(true),
+    ignoredReason: text('ignored_reason'),
+    summary: text('summary'),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+  },
+  (table) => [
+    index('idx_code_review_file_job_id').on(table.jobId),
+    index('idx_code_review_file_path').on(table.path),
+  ]
+);
+
+export const codeReviewFinding = table(
+  'code_review_finding',
+  {
+    id: text('id').primaryKey(),
+    jobId: text('job_id')
+      .notNull()
+      .references(() => codeReviewJob.id, { onDelete: 'cascade' }),
+    fileId: text('file_id').references(() => codeReviewFile.id, {
+      onDelete: 'set null',
+    }),
+    title: text('title').notNull(),
+    severity: text('severity').notNull(),
+    category: text('category').notNull(),
+    confidence: text('confidence').notNull(),
+    status: text('status').notNull(),
+    filePath: text('file_path'),
+    startLine: integer('start_line'),
+    endLine: integer('end_line'),
+    evidence: text('evidence').notNull(),
+    recommendation: text('recommendation').notNull(),
+    suggestedFix: text('suggested_fix'),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at')
+      .$onUpdate(() => /* @__PURE__ */ new Date())
+      .notNull(),
+  },
+  (table) => [
+    index('idx_code_review_finding_job_status').on(table.jobId, table.status),
+    index('idx_code_review_finding_severity').on(table.severity),
+  ]
+);
+
+export const codeReviewReport = table(
+  'code_review_report',
+  {
+    id: text('id').primaryKey(),
+    jobId: text('job_id')
+      .notNull()
+      .references(() => codeReviewJob.id, { onDelete: 'cascade' }),
+    summaryMarkdown: text('summary_markdown').notNull(),
+    reportJson: text('report_json').notNull(),
+    executiveSummary: text('executive_summary').notNull(),
+    riskScore: integer('risk_score').notNull().default(0),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+  },
+  (table) => [index('idx_code_review_report_job_id').on(table.jobId)]
+);
+
 export const chat = table(
   'chat',
   {
