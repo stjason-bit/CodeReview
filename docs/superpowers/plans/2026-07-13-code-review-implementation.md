@@ -6,7 +6,7 @@
 
 **Architecture:** Add a focused `src/extensions/code-review` domain package for archive safety, repository indexing, prompt construction, Evolink calls, and report assembly. Persist review jobs, files, findings, and reports through Drizzle models, expose authenticated API routes under `src/app/api/code-reviews`, and add an activity workspace UI under `src/app/[locale]/(landing)/activity/code-reviews`.
 
-**Tech Stack:** Next.js 16 App Router, React 19, TypeScript, Drizzle ORM/Postgres, Vitest, JSZip, Evolink Claude Messages API, existing ShipAny auth via `getUserInfo()`.
+**Tech Stack:** Next.js 16 App Router, React 19, TypeScript, Drizzle ORM/Postgres, Vitest, Node `zlib`, Evolink Claude Messages API, existing ShipAny auth via `getUserInfo()`.
 
 ## Global Constraints
 
@@ -36,7 +36,7 @@
 - Create `src/extensions/code-review/path.ts`: path normalization and traversal protection.
 - Create `src/extensions/code-review/filters.ts`: ignored path, binary, and size filtering.
 - Create `src/extensions/code-review/secrets.ts`: secret redaction before model calls.
-- Create `src/extensions/code-review/archive.ts`: zip extraction and safe file manifest creation.
+- Create `src/extensions/code-review/archive.ts`: dependency-free zip extraction and safe file manifest creation.
 - Create `src/extensions/code-review/indexer.ts`: stack detection, language stats, file grouping.
 - Create `src/extensions/code-review/prompts/*.ts`: versioned prompt builders.
 - Create `src/extensions/code-review/evolink.ts`: Evolink Messages API client.
@@ -283,13 +283,71 @@ git commit -m "test: add code review test harness"
 - [ ] **Step 1: Write the failing test**
 
 ```ts
-import JSZip from 'jszip';
 import { describe, expect, it } from 'vitest';
+import { deflateRawSync } from 'node:zlib';
 
 import { extractZipProject } from '../archive';
 import { shouldIgnoreFile } from '../filters';
 import { normalizeArchivePath } from '../path';
 import { redactSecrets } from '../secrets';
+
+function createStoredZip(entries: { path: string; content: string }[]): Buffer {
+  const chunks: Buffer[] = [];
+  const centralDirectory: Buffer[] = [];
+  let offset = 0;
+
+  for (const entry of entries) {
+    const name = Buffer.from(entry.path);
+    const content = Buffer.from(entry.content);
+    const compressed = deflateRawSync(content);
+    const local = Buffer.alloc(30);
+    local.writeUInt32LE(0x04034b50, 0);
+    local.writeUInt16LE(20, 4);
+    local.writeUInt16LE(0, 6);
+    local.writeUInt16LE(8, 8);
+    local.writeUInt32LE(0, 10);
+    local.writeUInt32LE(0, 14);
+    local.writeUInt32LE(compressed.length, 18);
+    local.writeUInt32LE(content.length, 22);
+    local.writeUInt16LE(name.length, 26);
+    local.writeUInt16LE(0, 28);
+    chunks.push(local, name, compressed);
+
+    const central = Buffer.alloc(46);
+    central.writeUInt32LE(0x02014b50, 0);
+    central.writeUInt16LE(20, 4);
+    central.writeUInt16LE(20, 6);
+    central.writeUInt16LE(0, 8);
+    central.writeUInt16LE(8, 10);
+    central.writeUInt32LE(0, 12);
+    central.writeUInt32LE(0, 16);
+    central.writeUInt32LE(compressed.length, 20);
+    central.writeUInt32LE(content.length, 24);
+    central.writeUInt16LE(name.length, 28);
+    central.writeUInt16LE(0, 30);
+    central.writeUInt16LE(0, 32);
+    central.writeUInt16LE(0, 34);
+    central.writeUInt16LE(0, 36);
+    central.writeUInt32LE(0, 38);
+    central.writeUInt32LE(offset, 42);
+    centralDirectory.push(central, name);
+    offset += local.length + name.length + compressed.length;
+  }
+
+  const centralStart = offset;
+  const centralSize = centralDirectory.reduce((sum, chunk) => sum + chunk.length, 0);
+  const end = Buffer.alloc(22);
+  end.writeUInt32LE(0x06054b50, 0);
+  end.writeUInt16LE(0, 4);
+  end.writeUInt16LE(0, 6);
+  end.writeUInt16LE(entries.length, 8);
+  end.writeUInt16LE(entries.length, 10);
+  end.writeUInt32LE(centralSize, 12);
+  end.writeUInt32LE(centralStart, 16);
+  end.writeUInt16LE(0, 20);
+
+  return Buffer.concat([...chunks, ...centralDirectory, end]);
+}
 
 describe('archive safety', () => {
   it('rejects traversal paths', () => {
@@ -313,11 +371,11 @@ describe('archive safety', () => {
   });
 
   it('extracts only safe reviewable files from a zip', async () => {
-    const zip = new JSZip();
-    zip.file('src/index.ts', 'export const ok = true;\\n');
-    zip.file('../outside.ts', 'bad');
-    zip.file('node_modules/pkg/index.js', 'ignored');
-    const buffer = await zip.generateAsync({ type: 'nodebuffer' });
+    const buffer = createStoredZip([
+      { path: 'src/index.ts', content: 'export const ok = true;\\n' },
+      { path: '../outside.ts', content: 'bad' },
+      { path: 'node_modules/pkg/index.js', content: 'ignored' },
+    ]);
 
     const project = await extractZipProject(buffer, 'sample.zip');
 
@@ -332,19 +390,9 @@ describe('archive safety', () => {
 
 Run: `pnpm test src/extensions/code-review/__tests__/archive.test.ts`
 
-Expected: FAIL because `jszip` and archive modules do not exist.
+Expected: FAIL because archive modules do not exist.
 
-- [ ] **Step 3: Add dependency and implementation**
-
-Modify `package.json` dependencies:
-
-```json
-{
-  "dependencies": {
-    "jszip": "^3.10.1"
-  }
-}
-```
+- [ ] **Step 3: Add implementation**
 
 Implement `path.ts`, `filters.ts`, `secrets.ts`, and `archive.ts` with:
 
@@ -437,7 +485,7 @@ export function redactSecrets(content: string): string {
 ```ts
 // archive.ts
 import crypto from 'node:crypto';
-import JSZip from 'jszip';
+import { inflateRawSync } from 'node:zlib';
 
 import { CODE_REVIEW_LIMITS } from './limits';
 import { shouldIgnoreFile } from './filters';
@@ -466,20 +514,20 @@ export async function extractZipProject(
     throw new Error('archive_too_large');
   }
 
-  const zip = await JSZip.loadAsync(buffer);
+  const entries = readZipEntries(buffer);
   const files: ReviewableFile[] = [];
   const ignoredFiles: IgnoredArchiveFile[] = [];
   let totalBytes = 0;
 
-  for (const entry of Object.values(zip.files)) {
-    if (entry.dir) continue;
-    const normalizedPath = normalizeArchivePath(entry.name);
+  for (const entry of entries) {
+    if (entry.path.endsWith('/')) continue;
+    const normalizedPath = normalizeArchivePath(entry.path);
     if (!normalizedPath) {
-      ignoredFiles.push({ path: entry.name, reason: 'unsafe_path' });
+      ignoredFiles.push({ path: entry.path, reason: 'unsafe_path' });
       continue;
     }
 
-    const contentBuffer = await entry.async('nodebuffer');
+    const contentBuffer = entry.content;
     totalBytes += contentBuffer.byteLength;
     if (totalBytes > CODE_REVIEW_LIMITS.maxExtractedBytes) {
       throw new Error('extracted_content_too_large');
@@ -517,6 +565,15 @@ export async function extractZipProject(
   return { archiveName, files, ignoredFiles, totalBytes };
 }
 
+interface ZipEntry {
+  path: string;
+  content: Buffer;
+}
+
+function readZipEntries(buffer: Buffer): ZipEntry[] {
+  // Parse the ZIP central directory and support methods 0 (stored) and 8 (deflated).
+}
+
 function detectLanguage(path: string): string {
   const extension = path.split('.').pop()?.toLowerCase();
   const map: Record<string, string> = {
@@ -548,7 +605,7 @@ Expected: PASS.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add package.json pnpm-lock.yaml src/extensions/code-review
+git add src/extensions/code-review
 git commit -m "feat: add safe code archive extraction"
 ```
 
