@@ -1,0 +1,27 @@
+<svg width="760" height="590" viewBox="0 0 760 590" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Cross-file code review</title>
+  <desc id="desc">An illustration of API, auth, model, payment, and database files connected for cross-file reasoning.</desc>
+  <rect width="760" height="590" rx="28" fill="#F8FAFC"/>
+  <rect x="58" y="58" width="644" height="474" rx="24" fill="white" stroke="#E2E8F0"/>
+  <text x="96" y="116" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">Cross-file context</text>
+  <g stroke="#CBD5E1" stroke-width="3">
+    <path d="M206 246L380 174L556 246"/>
+    <path d="M206 246L380 330L556 246"/>
+    <path d="M380 174V330"/>
+    <path d="M248 404L380 330L512 404"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-weight="700" font-size="15">
+    <rect x="134" y="206" width="144" height="80" rx="16" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="174" y="252" fill="#1D4ED8">API</text>
+    <rect x="308" y="134" width="144" height="80" rx="16" fill="#F0FDF4" stroke="#BBF7D0"/>
+    <text x="348" y="180" fill="#15803D">Auth</text>
+    <rect x="484" y="206" width="144" height="80" rx="16" fill="#FFF7ED" stroke="#FED7AA"/>
+    <text x="522" y="252" fill="#C2410C">Pay</text>
+    <rect x="308" y="290" width="144" height="80" rx="16" fill="#FEF2F2" stroke="#FECACA"/>
+    <text x="344" y="336" fill="#B91C1C">Model</text>
+    <rect x="176" y="392" width="144" height="80" rx="16" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="212" y="438" fill="#475569">DB</text>
+    <rect x="440" y="392" width="144" height="80" rx="16" fill="#EEF2FF" stroke="#C7D2FE"/>
+    <text x="478" y="438" fill="#4338CA">Rules</text>
+  </g>
+</svg>

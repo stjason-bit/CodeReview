@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "CodeReview AI — Repository code review workbench",
+    "title": "CodeReview AI - Repository code review workbench",
     "description": "Upload a repository archive and combine deterministic rules, cross-file LLM review, issue triage, human confirmation, and traceable exports.",
     "keywords": "AI code review, repository review, static rules, duplicate code, risk detection"
   },
@@ -37,7 +37,7 @@
     "verify_email_page_title": "Check your email",
     "verify_email_page_description": "To continue, click the link sent to",
     "verify_email_continue": "Continue",
-    "verify_email_tip": "After verifying, click “Continue”.",
+    "verify_email_tip": "After verifying, click Continue.",
     "verify_email_not_verified_yet": "Not verified yet. Please click the link in your email first.",
     "verify_email_account_mismatch": "Signed in as {current}. This page is waiting for {expected}.",
     "resend_verification_countdown": "Resend verification email ({seconds}s)",

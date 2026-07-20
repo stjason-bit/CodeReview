@@ -1,16 +1,47 @@
 {
+  "workspace": {
+    "badge": "Review workspace",
+    "title": "Run a focused repository review",
+    "description": "Upload a ZIP snapshot, choose review depth, and keep the whole review budget visible before the job starts.",
+    "credits": "Available credits",
+    "reviews": "Generated reviews",
+    "modes": "Review modes",
+    "modes_value": "Standard · Security · Deep",
+    "credits_unit": "credits"
+  },
   "pipeline": {
     "title": "Review pipeline",
     "description": "A visible path from repository submission to human-confirmed, exportable results.",
     "working": "The request stays open while the repository is indexed and reviewed. Larger repositories can take several minutes.",
     "stages": [
-      { "title": "Submit code", "description": "Upload a ZIP snapshot and choose review depth." },
-      { "title": "Secure index", "description": "Validate paths and limits, redact secrets, and record ignored files." },
-      { "title": "Rule scan", "description": "Check standards, duplication, security signals, and potential risk." },
-      { "title": "LLM review", "description": "Profile the repository, review files, and reason across modules." },
-      { "title": "Classify", "description": "Normalize severity, category, confidence, evidence, and remediation." },
-      { "title": "Human confirm", "description": "Triage every finding as open, needs review, ignored, or fixed." },
-      { "title": "Write back", "description": "Persist decisions and export the latest Markdown or JSON report." }
+      {
+        "title": "Submit code",
+        "description": "Upload a ZIP snapshot and choose review depth."
+      },
+      {
+        "title": "Secure index",
+        "description": "Validate paths and limits, redact secrets, and record ignored files."
+      },
+      {
+        "title": "Rule scan",
+        "description": "Check standards, duplication, security signals, and potential risk."
+      },
+      {
+        "title": "LLM review",
+        "description": "Profile the repository, review files, and reason across modules."
+      },
+      {
+        "title": "Classify",
+        "description": "Normalize severity, category, confidence, evidence, and remediation."
+      },
+      {
+        "title": "Human confirm",
+        "description": "Triage every finding as open, needs review, ignored, or fixed."
+      },
+      {
+        "title": "Write back",
+        "description": "Persist decisions and export the latest Markdown or JSON report."
+      }
     ]
   },
   "upload": {
@@ -19,9 +50,18 @@
     "file": "Project ZIP",
     "file_hint": "ZIP only, up to 25 MB and 1,200 files.",
     "mode": "Review depth",
-    "mode_standard": "Standard — balanced coverage",
-    "mode_deep": "Deep — more cross-file context",
-    "mode_security": "Security focused — auth, permissions, data, and injection",
+    "mode_standard": "Standard - balanced coverage",
+    "mode_deep": "Deep - more cross-file context",
+    "mode_security": "Security focused - auth, permissions, data, and injection",
+    "mode_standard_hint": "Best default for routine release checks and balanced signal.",
+    "mode_deep_hint": "Adds more cross-file reasoning for larger changes and architecture risk.",
+    "mode_security_hint": "Focuses on auth, payment, API exposure, data leaks, and permissions.",
+    "credits_balance": "Available credits",
+    "credits_cost": "Review cost",
+    "credits_after": "After this review",
+    "credits_unit": "credits",
+    "insufficient_credits": "This review requires {required} credits. You have {remaining} credits.",
+    "buy_credits": "Buy credits",
     "instructions": "Project-specific instructions",
     "instructions_placeholder": "Example: focus on auth, database access, payment flows, duplicate business rules, or production readiness.",
     "submit": "Generate review",

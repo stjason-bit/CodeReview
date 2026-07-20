@@ -2,6 +2,7 @@
   "page": {
     "show_sections": [
       "hero",
+      "stats",
       "introduce",
       "workflow",
       "benefits",
@@ -12,15 +13,15 @@
     "sections": {
       "hero": {
         "id": "hero",
-        "title": "Turn a repository into an actionable review, not a wall of comments",
-        "highlight_text": "actionable review",
-        "description": "CodeReview AI combines deterministic rules with cross-file LLM reasoning, then keeps every finding in a human-confirmed, exportable workflow.",
+        "title": "AI code review for startup engineering teams",
+        "highlight_text": "AI code review",
+        "description": "CodeReview AI turns repository snapshots into prioritized findings, risk scores, human-confirmed decisions, and exportable reports before risky code reaches production.",
         "announcement": {
-          "badge": "MVP",
-          "title": "ZIP repository review is ready",
+          "badge": "Live",
+          "title": "Review a repository snapshot today",
           "url": "/activity/code-reviews"
         },
-        "tip": "Uploaded code is inspected without executing project files or installing their dependencies.",
+        "tip": "Uploaded code is inspected as text only. Project files are not executed and dependencies are not installed.",
         "buttons": [
           {
             "title": "Start a code review",
@@ -30,16 +31,51 @@
             "variant": "default"
           },
           {
-            "title": "See the workflow",
-            "icon": "Workflow",
-            "url": "/#workflow",
+            "title": "View pricing",
+            "icon": "CreditCard",
+            "url": "/pricing",
             "target": "_self",
             "variant": "outline"
           }
         ],
+        "image": {
+          "src": "/imgs/code-review/hero-dashboard.svg",
+          "alt": "CodeReview AI repository review workbench",
+          "width": 1440,
+          "height": 900
+        },
+        "image_invert": {
+          "src": "/imgs/code-review/hero-dashboard.svg",
+          "alt": "CodeReview AI repository review workbench",
+          "width": 1440,
+          "height": 900
+        },
+        "background_image": {
+          "src": "/imgs/code-review/hero-background.svg",
+          "alt": "Code review signal network"
+        },
         "show_avatars": false,
         "show_award": false,
         "show_bg": true
+      },
+      "stats": {
+        "id": "stats",
+        "title": "Built around a practical review budget",
+        "description": "The current product focuses on bounded repository snapshots, transparent review cost, and repeatable engineering decisions.",
+        "items": [
+          {
+            "title": "3",
+            "description": "review modes for standard, deep, and security-focused checks"
+          },
+          {
+            "title": "25 MB",
+            "description": "maximum ZIP snapshot size for controlled review scope"
+          },
+          {
+            "title": "1,200",
+            "description": "files indexed per repository snapshot before filtering"
+          }
+        ]
       },
       "introduce": {
         "block": "features-list",
@@ -47,6 +83,10 @@
         "title": "One review pipeline, two complementary signals",
         "label": "How it works",
         "description": "Fast, explainable rules catch known patterns first. The LLM then reasons across modules, data boundaries, and repository context.",
+        "image": {
+          "src": "/imgs/code-review/review-pipeline.svg",
+          "alt": "CodeReview AI review pipeline"
+        },
         "items": [
           {
             "title": "Deterministic rule scan",
@@ -69,7 +109,7 @@
       "workflow": {
         "block": "features-step",
         "id": "workflow",
-        "title": "A visible review loop from submission to write-back",
+        "title": "A visible review loop from upload to export",
         "description": "Every stage has a clear purpose and produces evidence for the next decision.",
         "text_align": "center",
         "items": [
@@ -104,7 +144,7 @@
             "icon": "UserCheck"
           },
           {
-            "title": "7. Write back results",
+            "title": "7. Export results",
             "description": "Persist triage decisions and export live Markdown or JSON with the current risk state.",
             "icon": "RefreshCcw"
           }
@@ -113,24 +153,37 @@
       "benefits": {
         "block": "features-accordion",
         "id": "benefits",
+        "show_side_decoration": false,
         "title": "Designed for signal, safety, and engineering decisions",
         "label": "Review quality",
-        "description": "The MVP favors traceable evidence and controlled scope over speculative volume.",
+        "description": "The product favors traceable evidence and controlled scope over speculative volume.",
         "items": [
           {
             "title": "Low-noise by design",
             "description": "Ignored files are visible, duplicate findings are collapsed, and low-confidence items are routed to human review.",
-            "icon": "Filter"
+            "icon": "Filter",
+            "image": {
+              "src": "/imgs/code-review/noise-filter.svg",
+              "alt": "Low-noise code review findings"
+            }
           },
           {
             "title": "Cross-file reasoning",
             "description": "Critical API, auth, permission, payment, schema, and model files are reviewed together instead of as isolated snippets.",
-            "icon": "Network"
+            "icon": "Network",
+            "image": {
+              "src": "/imgs/code-review/cross-file-context.svg",
+              "alt": "Cross-file reasoning over critical modules"
+            }
           },
           {
             "title": "No uploaded-code execution",
             "description": "The service does not run project code, install project packages, or expose uploaded source through public assets.",
-            "icon": "ShieldCheck"
+            "icon": "ShieldCheck",
+            "image": {
+              "src": "/imgs/code-review/safe-index.svg",
+              "alt": "Safe code indexing without execution"
+            }
           }
         ]
       },
@@ -145,7 +198,7 @@
             "icon": "Bug"
           },
           {
-            "title": "Security & permissions",
+            "title": "Security and permissions",
             "description": "Credential exposure, injection surfaces, auth boundaries, and access-control risks.",
             "icon": "ShieldAlert"
           },
@@ -165,7 +218,7 @@
             "icon": "TriangleAlert"
           },
           {
-            "title": "Architecture & tests",
+            "title": "Architecture and tests",
             "description": "Cross-module coupling, persistence boundaries, performance concerns, and missing test coverage.",
             "icon": "Blocks"
           }
@@ -173,12 +226,16 @@
       },
       "faq": {
         "id": "faq",
-        "title": "Code review MVP questions",
+        "title": "Code review product questions",
         "description": "Clear boundaries make the report easier to trust.",
         "items": [
           {
+            "question": "How are credits used?",
+            "answer": "Standard reviews use 10 credits, security-focused reviews use 20 credits, and deep reviews use 25 credits. The workspace checks your balance before starting and consumes credits only after a successful review."
+          },
+          {
             "question": "Does the service execute uploaded code?",
-            "answer": "No. The MVP reads a bounded ZIP snapshot in memory, filters files, redacts common secret patterns, and sends only selected text to the configured review model."
+            "answer": "No. CodeReview AI reads a bounded ZIP snapshot, filters files, redacts common secret patterns, and sends selected source text to the configured review model."
           },
           {
             "question": "What does the rule scan cover?",
@@ -189,12 +246,8 @@
             "answer": "Static rules and LLM reasoning can both need repository-specific context. Human status changes are persisted and immediately reflected in the risk score and exported report."
           },
           {
-            "question": "Which files are skipped?",
-            "answer": "Dependencies, generated output, caches, binary assets, archives, oversized files, unsafe paths, and symlinks are ignored and listed in the report."
-          },
-          {
             "question": "Can it review a GitHub pull request?",
-            "answer": "The current MVP reviews ZIP repository snapshots. GitHub App and pull-request write-back are intentionally reserved for a later integration phase."
+            "answer": "The current product reviews ZIP repository snapshots. GitHub App and pull-request write-back are reserved for a later integration phase."
           }
         ]
       },
@@ -208,6 +261,13 @@
             "url": "/activity/code-reviews",
             "target": "_self",
             "icon": "ScanSearch"
+          },
+          {
+            "title": "Compare plans",
+            "url": "/pricing",
+            "target": "_self",
+            "icon": "CreditCard",
+            "variant": "outline"
           }
         ],
         "className": "bg-muted"

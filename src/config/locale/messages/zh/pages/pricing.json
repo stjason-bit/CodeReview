@@ -1,358 +1,301 @@
 {
   "metadata": {
-    "title": "价格",
-    "description": "选择方案，立即开始"
+    "title": "CodeReview AI 价格",
+    "description": "面向 AI 代码审查团队的订阅方案和积分包。"
   },
   "page": {
-    "title": "ShipAny 价格表",
+    "title": "CodeReview AI 价格",
     "sections": {
       "pricing": {
         "id": "pricing",
-        "title": "价格",
-        "description": "获取 ShipAny 的全部功能，极速交付你的 AI SaaS 创业项目。",
+        "title": "为更安全的代码交付配置审查预算",
+        "description": "先用订阅获得稳定的月度审查积分，发布高峰期再通过积分包补充容量。",
         "groups": [
-          {
-            "name": "one-time",
-            "title": "按次付费"
-          },
           {
             "name": "monthly",
             "title": "包月",
-            "is_featured": true,
-            "label": "立省15%"
+            "is_featured": true
           },
           {
             "name": "yearly",
-            "title": "包年"
+            "title": "包年",
+            "label": "省 2 个月"
+          },
+          {
+            "name": "credits",
+            "title": "积分包"
           }
         ],
         "items": [
           {
-            "title": "入门版",
-            "description": "开启你的第一个 SaaS 创业项目。",
+            "title": "Starter",
+            "description": "适合创始人和小团队审查一个活跃代码库。",
             "features_title": "包含",
             "features": [
-              "100 积分，有效期 1 个月",
-              "NextJS 项目模板",
-              "SEO 友好结构",
-              "支持 Stripe 支付",
-              "Supabase 数据存储",
-              "Google Oauth & 一键登录",
-              "多语言（i18n）支持"
+              "每月 500 审查积分",
+              "标准、深度、安全三种审查模式",
+              "上传最大 25 MB 的 ZIP 仓库",
+              "审查历史与风险评分",
+              "Markdown 和 JSON 导出"
             ],
-            "interval": "one-time",
+            "interval": "month",
+            "amount": 3900,
+            "currency": "USD",
+            "price": "$39",
+            "unit": "/ 月",
+            "is_featured": false,
+            "tip": "适合稳定的发布前检查。",
+            "button": {
+              "title": "开通 Starter",
+              "url": "/pricing",
+              "icon": "CreditCard"
+            },
+            "product_id": "starter-monthly",
+            "product_name": "CodeReview AI Starter 包月",
+            "credits": 500,
+            "valid_days": 30,
+            "group": "monthly",
+            "plan_name": "Starter"
+          },
+          {
+            "title": "Team",
+            "description": "适合需要审查多个服务的创业工程团队。",
+            "label": "热门",
+            "features_title": "包含 Starter 的全部能力，另加",
+            "features": [
+              "每月 2,000 审查积分",
+              "更充足的深度跨文件审查额度",
+              "安全优先审查工作流",
+              "每个问题都支持人工确认状态",
+              "账单、积分流水和支付记录"
+            ],
+            "interval": "month",
             "amount": 9900,
             "currency": "USD",
             "price": "$99",
-            "original_price": "$199",
-            "currencies": [
-              {
-                "currency": "CNY",
-                "amount": 69900,
-                "price": "¥699",
-                "original_price": "¥1399",
-                "payment_providers": ["stripe"]
-              }
-            ],
-            "unit": "",
-            "is_featured": false,
-            "tip": "一次付费，畅享无限项目部署！",
-            "button": {
-              "title": "获取 ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
-            },
-            "product_id": "starter",
-            "product_name": "ShipAny 模板入门版",
-            "credits": 100,
-            "valid_days": 30,
-            "group": "one-time"
-          },
-          {
-            "title": "标准版",
-            "description": "快速交付你的 SaaS 创业项目。",
-            "label": "热门",
-            "features_title": "包含入门版功能，此外",
-            "features": [
-              "200 积分，有效期 3 个月",
-              "支持 Vercel 或 Cloudflare 部署",
-              "自动生成隐私政策&服务条款",
-              "集成 Google Analytics",
-              "集成 Google Search Console",
-              "Discord 技术社区",
-              "首个上线项目技术支持",
-              "终身免费更新"
-            ],
-            "interval": "one-time",
-            "amount": 19900,
-            "currency": "USD",
-            "price": "$199",
-            "original_price": "$299",
-            "currencies": [
-              {
-                "currency": "CNY",
-                "amount": 139900,
-                "price": "¥1399",
-                "original_price": "¥1999",
-                "payment_providers": ["stripe"]
-              }
-            ],
-            "unit": "",
-            "is_featured": true,
-            "tip": "一次付费，畅享无限项目部署！",
-            "button": {
-              "title": "获取 ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
-            },
-            "product_id": "standard",
-            "product_name": "ShipAny 模板标准版",
-            "credits": 200,
-            "valid_days": 90,
-            "group": "one-time"
-          },
-          {
-            "title": "高级版",
-            "description": "交付任意 AI SaaS 创业项目。",
-            "features_title": "包含标准版功能，此外",
-            "features": [
-              "300 积分，有效期 1 年",
-              "内置 AI 业务功能",
-              "用户中心",
-              "积分系统",
-              "为你的 SaaS 售卖 API",
-              "后台管理系统",
-              "优先技术支持"
-            ],
-            "interval": "one-time",
-            "amount": 29900,
-            "currency": "USD",
-            "price": "$299",
-            "original_price": "$399",
-            "currencies": [
-              {
-                "currency": "CNY",
-                "amount": 199900,
-                "price": "¥1999",
-                "original_price": "¥2799",
-                "payment_providers": ["stripe", "creem"]
-              }
-            ],
-            "unit": "",
-            "is_featured": false,
-            "tip": "一次付费，畅享无限项目部署！",
-            "button": {
-              "title": "获取 ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
-            },
-            "product_id": "premium",
-            "product_name": "ShipAny 模板高级版",
-            "credits": 300,
-            "valid_days": 365,
-            "group": "one-time"
-          },
-          {
-            "title": "入门版",
-            "description": "开启你的第一个 SaaS 创业项目。",
-            "features_title": "包含",
-            "features": [
-              "100 积分，有效期 1 个月",
-              "NextJS 项目模板",
-              "SEO 友好结构",
-              "支持 Stripe 支付",
-              "Supabase 数据存储",
-              "Google Oauth & 一键登录",
-              "多语言（i18n）支持"
-            ],
-            "interval": "month",
-            "amount": 8900,
-            "currency": "USD",
-            "price": "$89",
-            "original_price": "$99",
-            "unit": "/ 月",
-            "is_featured": false,
-            "tip": "按月付费，畅享无限项目部署！",
-            "button": {
-              "title": "获取 ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
-            },
-            "product_id": "starter-monthly",
-            "product_name": "ShipAny 模板入门版包月",
-            "credits": 100,
-            "valid_days": 30,
-            "group": "monthly",
-            "plan_name": "入门版"
-          },
-          {
-            "title": "标准版",
-            "description": "快速交付你的 SaaS 创业项目。",
-            "label": "热门",
-            "features_title": "包含入门版功能，此外",
-            "features": [
-              "200 积分，有效期 1 个月",
-              "支持 Vercel 或 Cloudflare 部署",
-              "自动生成隐私政策&服务条款",
-              "集成 Google Analytics",
-              "集成 Google Search Console",
-              "Discord 技术社区",
-              "首个上线项目技术支持",
-              "终身免费更新"
-            ],
-            "interval": "month",
-            "amount": 16900,
-            "currency": "USD",
-            "price": "$169",
-            "original_price": "$199",
             "unit": "/ 月",
             "is_featured": true,
-            "tip": "按月付费，极速上线你的 SaaS 项目。",
+            "tip": "适合每周都有发布节奏的团队。",
             "button": {
-              "title": "获取 ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "开通 Team",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
-            "product_id": "standard-monthly",
-            "product_name": "ShipAny 模板标准版包月",
-            "credits": 200,
+            "product_id": "team-monthly",
+            "product_name": "CodeReview AI Team 包月",
+            "credits": 2000,
             "valid_days": 30,
             "group": "monthly",
-            "plan_name": "标准版"
+            "plan_name": "Team"
           },
           {
-            "title": "高级版",
-            "description": "交付任意 AI SaaS 创业项目。",
-            "features_title": "包含标准版功能，此外",
+            "title": "Pro",
+            "description": "适合在多个仓库上频繁运行深度审查的团队。",
+            "features_title": "包含 Team 的全部能力，另加",
             "features": [
-              "300 积分，有效期 1 个月",
-              "内置 AI 业务功能",
-              "用户中心",
-              "积分系统",
-              "为你的 SaaS 售卖 API",
-              "后台管理系统",
-              "优先技术支持"
+              "每月 7,000 审查积分",
+              "适合频繁深度审查和安全审查",
+              "更适合审计准备的审查历史",
+              "面向工程负责人的结构化报告",
+              "为后续 Git 与 CI 集成预留更高容量"
             ],
             "interval": "month",
             "amount": 24900,
             "currency": "USD",
             "price": "$249",
-            "original_price": "$299",
             "unit": "/ 月",
             "is_featured": false,
-            "tip": "按月付费，助你交付任何 AI SaaS 项目。",
+            "tip": "适合更高审查吞吐量。",
             "button": {
-              "title": "获取 ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "开通 Pro",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
-            "product_id": "premium-monthly",
-            "product_name": "ShipAny 模板高级版包月",
-            "credits": 300,
+            "product_id": "pro-monthly",
+            "product_name": "CodeReview AI Pro 包月",
+            "credits": 7000,
             "valid_days": 30,
             "group": "monthly",
-            "plan_name": "高级版"
+            "plan_name": "Pro"
           },
           {
-            "title": "入门版",
-            "description": "开启你的第一个 SaaS 创业项目。",
+            "title": "Starter",
+            "description": "适合一个产品团队的年度审查预算。",
             "features_title": "包含",
             "features": [
-              "100 积分，有效期 1 年",
-              "NextJS 项目模板",
-              "SEO 友好结构",
-              "支持 Stripe 支付",
-              "Supabase 数据存储",
-              "Google Oauth & 一键登录",
-              "多语言（i18n）支持"
+              "每年 6,000 审查积分",
+              "标准、深度、安全三种审查模式",
+              "上传最大 25 MB 的 ZIP 仓库",
+              "审查历史与风险评分",
+              "Markdown 和 JSON 导出"
             ],
             "interval": "year",
-            "amount": 82800,
+            "amount": 37200,
             "currency": "USD",
-            "price": "$69",
-            "original_price": "$89",
+            "price": "$31",
+            "original_price": "$39",
             "unit": "/ 月",
             "is_featured": false,
-            "tip": "按年付费，畅享无限项目部署！",
+            "tip": "按年支付 $372。",
             "button": {
-              "title": "获取 ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "开通 Starter",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
             "product_id": "starter-yearly",
-            "product_name": "ShipAny 模板入门版包年",
-            "credits": 1200,
+            "product_name": "CodeReview AI Starter 包年",
+            "credits": 6000,
             "valid_days": 365,
             "group": "yearly",
-            "plan_name": "入门版"
+            "plan_name": "Starter"
           },
           {
-            "title": "标准版",
-            "description": "快速交付你的 SaaS 创业项目。",
+            "title": "Team",
+            "description": "适合需要审查多个仓库的团队年度预算。",
             "label": "热门",
-            "features_title": "包含入门版功能，此外",
+            "features_title": "包含 Starter 的全部能力，另加",
             "features": [
-              "200 积分，有效期 1 年",
-              "支持 Vercel 或 Cloudflare 部署",
-              "自动生成隐私政策&服务条款",
-              "集成 Google Analytics",
-              "集成 Google Search Console",
-              "Discord 技术社区",
-              "首个上线项目技术支持",
-              "终身免费更新"
+              "每年 24,000 审查积分",
+              "更充足的深度跨文件审查额度",
+              "安全优先审查工作流",
+              "每个问题都支持人工确认状态",
+              "账单、积分流水和支付记录"
             ],
             "interval": "year",
-            "amount": 154800,
+            "amount": 94800,
             "currency": "USD",
-            "price": "$129",
-            "original_price": "$169",
+            "price": "$79",
+            "original_price": "$99",
             "unit": "/ 月",
             "is_featured": true,
-            "tip": "按年付费，极速上线你的 SaaS 项目。",
+            "tip": "按年支付 $948。",
             "button": {
-              "title": "获取 ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "开通 Team",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
-            "product_id": "standard-yearly",
-            "product_name": "ShipAny 模板标准版包年",
-            "credits": 2400,
+            "product_id": "team-yearly",
+            "product_name": "CodeReview AI Team 包年",
+            "credits": 24000,
             "valid_days": 365,
             "group": "yearly",
-            "plan_name": "标准版"
+            "plan_name": "Team"
           },
           {
-            "title": "高级版",
-            "description": "交付任意 AI SaaS 创业项目。",
-            "features_title": "包含标准版功能，此外",
+            "title": "Pro",
+            "description": "适合频繁深度审查和安全审查的年度容量。",
+            "features_title": "包含 Team 的全部能力，另加",
             "features": [
-              "300 积分，有效期 1 年",
-              "内置 AI 业务功能",
-              "用户中心",
-              "积分系统",
-              "为你的 SaaS 售卖 API",
-              "后台管理系统",
-              "优先技术支持"
+              "每年 84,000 审查积分",
+              "适合频繁深度审查和安全审查",
+              "更适合审计准备的审查历史",
+              "面向工程负责人的结构化报告",
+              "为后续 Git 与 CI 集成预留更高容量"
             ],
             "interval": "year",
-            "amount": 226800,
+            "amount": 238800,
             "currency": "USD",
-            "price": "$189",
+            "price": "$199",
             "original_price": "$249",
             "unit": "/ 月",
             "is_featured": false,
-            "tip": "按年付费，助你交付任何 AI SaaS 项目。",
+            "tip": "按年支付 $2,388。",
             "button": {
-              "title": "获取 ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "开通 Pro",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
-            "product_id": "premium-yearly",
-            "product_name": "ShipAny 模板高级版包年",
-            "credits": 3600,
+            "product_id": "pro-yearly",
+            "product_name": "CodeReview AI Pro 包年",
+            "credits": 84000,
             "valid_days": 365,
             "group": "yearly",
-            "plan_name": "高级版"
+            "plan_name": "Pro"
+          },
+          {
+            "title": "100 积分",
+            "description": "用于补充一到两次额外审查的小容量包。",
+            "features_title": "可用于",
+            "features": [
+              "10 次标准审查",
+              "4 次深度审查",
+              "5 次安全优先审查",
+              "积分有效期 12 个月"
+            ],
+            "interval": "one-time",
+            "amount": 1200,
+            "currency": "USD",
+            "price": "$12",
+            "unit": "",
+            "is_featured": false,
+            "tip": "适合一个迭代临时多做几次检查。",
+            "button": {
+              "title": "购买 100 积分",
+              "url": "/pricing",
+              "icon": "Zap"
+            },
+            "product_id": "credits-100",
+            "product_name": "CodeReview AI 100 积分",
+            "credits": 100,
+            "valid_days": 365,
+            "group": "credits"
+          },
+          {
+            "title": "300 积分",
+            "description": "适合发布周使用的实用补充包。",
+            "label": "更划算",
+            "features_title": "可用于",
+            "features": [
+              "30 次标准审查",
+              "12 次深度审查",
+              "15 次安全优先审查",
+              "积分有效期 12 个月"
+            ],
+            "interval": "one-time",
+            "amount": 2900,
+            "currency": "USD",
+            "price": "$29",
+            "unit": "",
+            "is_featured": true,
+            "tip": "不改变订阅方案，直接补充积分。",
+            "button": {
+              "title": "购买 300 积分",
+              "url": "/pricing",
+              "icon": "Zap"
+            },
+            "product_id": "credits-300",
+            "product_name": "CodeReview AI 300 积分",
+            "credits": 300,
+            "valid_days": 365,
+            "group": "credits"
+          },
+          {
+            "title": "1,000 积分",
+            "description": "为繁忙工程团队补充更高审查容量。",
+            "features_title": "可用于",
+            "features": [
+              "100 次标准审查",
+              "40 次深度审查",
+              "50 次安全优先审查",
+              "积分有效期 12 个月"
+            ],
+            "interval": "one-time",
+            "amount": 7900,
+            "currency": "USD",
+            "price": "$79",
+            "unit": "",
+            "is_featured": false,
+            "tip": "适合审计、迁移和集中重构项目。",
+            "button": {
+              "title": "购买 1,000 积分",
+              "url": "/pricing",
+              "icon": "Zap"
+            },
+            "product_id": "credits-1000",
+            "product_name": "CodeReview AI 1,000 积分",
+            "credits": 1000,
+            "valid_days": 365,
+            "group": "credits"
           }
         ]
       }

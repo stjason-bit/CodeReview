@@ -73,7 +73,7 @@ export function CodeReviewFindingsTable({
   }
 
   return (
-    <Card>
+    <Card className="border-primary/15 bg-card/95 shadow-primary/5 shadow-sm">
       <CardHeader>
         <CardTitle>{labels.title}</CardTitle>
         <CardDescription>{labels.description}</CardDescription>
@@ -81,23 +81,24 @@ export function CodeReviewFindingsTable({
       <CardContent className="space-y-4">
         {error && <div className="text-destructive text-sm">{error}</div>}
         {items.length === 0 ? (
-          <div className="text-muted-foreground text-sm">
-            {labels.empty}
-          </div>
+          <div className="text-muted-foreground text-sm">{labels.empty}</div>
         ) : (
           items.map((finding) => (
             <div
               key={finding.id}
-              className="border-border rounded-md border p-4"
+              className="border-border bg-background/70 hover:border-primary/35 relative overflow-hidden rounded-lg border p-4 transition-colors"
             >
-              <div className="flex flex-wrap items-start gap-2">
+              <span
+                aria-hidden
+                className="from-primary/60 to-accent absolute inset-y-4 left-0 w-1 rounded-r-full bg-linear-to-b"
+              />
+              <div className="flex flex-wrap items-start gap-2 pl-2">
                 <Badge variant="secondary">{finding.severity}</Badge>
                 <Badge variant="outline">
                   {labels.categories[finding.category] || finding.category}
                 </Badge>
                 <Badge variant="outline">
-                  {labels.confidence[finding.confidence] ||
-                    finding.confidence}
+                  {labels.confidence[finding.confidence] || finding.confidence}
                 </Badge>
                 <div className="min-w-0 flex-1">
                   <h3 className="text-sm font-semibold">{finding.title}</h3>
@@ -122,11 +123,11 @@ export function CodeReviewFindingsTable({
                   ))}
                 </select>
               </div>
-              <p className="mt-3 text-sm">
+              <p className="mt-3 pl-2 text-sm">
                 <span className="font-medium">{labels.evidence}: </span>
                 {finding.evidence}
               </p>
-              <p className="text-muted-foreground mt-2 text-sm">
+              <p className="text-muted-foreground mt-2 pl-2 text-sm">
                 <span className="font-medium">{labels.recommendation}: </span>
                 {finding.recommendation}
               </p>

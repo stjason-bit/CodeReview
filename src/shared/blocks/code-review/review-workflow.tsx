@@ -24,7 +24,8 @@ export function CodeReviewWorkflow({
 }) {
   const currentStep =
     activeStep === undefined ? stepFromJobStatus(status) : activeStep;
-  const allCompleted = status === 'completed' || currentStep >= stages.length - 1;
+  const allCompleted =
+    status === 'completed' || currentStep >= stages.length - 1;
 
   return (
     <section className={cn('space-y-4', className)}>
@@ -34,7 +35,8 @@ export function CodeReviewWorkflow({
       </div>
       <ol className="grid gap-3 sm:grid-cols-2 xl:grid-cols-7">
         {stages.map((stage, index) => {
-          const complete = allCompleted || (currentStep >= 0 && index < currentStep);
+          const complete =
+            allCompleted || (currentStep >= 0 && index < currentStep);
           const active = !allCompleted && index === currentStep;
 
           return (
@@ -42,7 +44,7 @@ export function CodeReviewWorkflow({
               key={`${stage.title}-${index}`}
               aria-current={active ? 'step' : undefined}
               className={cn(
-                'border-border bg-card relative rounded-lg border p-3 transition-colors',
+                'border-border bg-card/90 relative rounded-lg border p-3 shadow-xs transition-colors',
                 complete && 'border-primary/30 bg-primary/5',
                 active && 'border-primary bg-primary/10 ring-primary/15 ring-4'
               )}
@@ -79,5 +81,5 @@ function stepFromJobStatus(status?: string): number {
     failed: -1,
   };
 
-  return status ? steps[status] ?? -1 : -1;
+  return status ? (steps[status] ?? -1) : -1;
 }

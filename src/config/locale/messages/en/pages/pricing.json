@@ -1,338 +1,308 @@
 {
   "metadata": {
-    "title": "Pricing",
-    "description": "Start with a plan"
+    "title": "CodeReview AI Pricing",
+    "description": "Subscription plans and credit packs for AI code review teams."
   },
   "page": {
-    "title": "ShipAny Pricing",
+    "title": "CodeReview AI Pricing",
     "sections": {
       "pricing": {
         "id": "pricing",
-        "title": "Pricing",
-        "description": "Get all features of ShipAny, Ship your AI SaaS startups fast.",
+        "title": "Plans for shipping safer code",
+        "description": "Start with a monthly review budget, upgrade for larger teams, or add credit packs when release week gets busy.",
         "groups": [
-          {
-            "name": "one-time",
-            "title": "Pay as you go"
-          },
           {
             "name": "monthly",
             "title": "Monthly",
-            "is_featured": true,
-            "label": "save 15%"
+            "is_featured": true
           },
           {
             "name": "yearly",
-            "title": "Annually"
+            "title": "Yearly",
+            "label": "2 months free"
+          },
+          {
+            "name": "credits",
+            "title": "Credit packs"
           }
         ],
         "items": [
           {
             "title": "Starter",
-            "description": "Get started with your first SaaS startup.",
+            "description": "For founders and small teams reviewing one active codebase.",
             "features_title": "Includes",
             "features": [
-              "100 credits, valid for 1 month",
-              "NextJS boilerplate",
-              "SEO-friendly structure",
-              "Payment with Stripe",
-              "Data storage with Supabase",
-              "Google Oauth & One-Tap Login",
-              "i18n support"
-            ],
-            "interval": "one-time",
-            "amount": 9900,
-            "currency": "USD",
-            "price": "$99",
-            "original_price": "$199",
-            "unit": "",
-            "is_featured": false,
-            "tip": "Pay once. Build unlimited projects!",
-            "button": {
-              "title": "Get ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
-            },
-            "product_id": "starter",
-            "product_name": "ShipAny Boilerplate Starter",
-            "credits": 100,
-            "valid_days": 30,
-            "group": "one-time"
-          },
-          {
-            "title": "Standard",
-            "description": "Ship Fast with your SaaS Startups.",
-            "label": "Popular",
-            "features_title": "Everything in Starter, plus",
-            "features": [
-              "200 credits, valid for 3 month",
-              "Deploy with Vercel or Cloudflare",
-              "Generation of Privacy & Terms",
-              "Google Analytics Integration",
-              "Google Search Console Integration",
-              "Discord community",
-              "Technical support for your first ship",
-              "Lifetime updates"
-            ],
-            "interval": "one-time",
-            "amount": 19900,
-            "currency": "USD",
-            "price": "$199",
-            "original_price": "$299",
-            "unit": "",
-            "is_featured": true,
-            "tip": "Pay once. Build unlimited projects!",
-            "button": {
-              "title": "Get ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
-            },
-            "product_id": "standard",
-            "product_name": "ShipAny Boilerplate Standard",
-            "credits": 200,
-            "valid_days": 90,
-            "group": "one-time"
-          },
-          {
-            "title": "Premium",
-            "description": "Ship Any AI SaaS Startups.",
-            "features_title": "Everything in Standard, plus",
-            "features": [
-              "300 credits, valid for 1 year",
-              "Business Functions with AI",
-              "User Center",
-              "Credits System",
-              "API Sales for your SaaS",
-              "Admin System",
-              "Priority Technical Support"
-            ],
-            "interval": "one-time",
-            "amount": 29900,
-            "currency": "USD",
-            "price": "$299",
-            "original_price": "$399",
-            "unit": "",
-            "is_featured": false,
-            "tip": "Pay once. Build unlimited projects!",
-            "button": {
-              "title": "Get ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
-            },
-            "product_id": "premium",
-            "product_name": "ShipAny Boilerplate Premium",
-            "credits": 300,
-            "valid_days": 365,
-            "group": "one-time"
-          },
-          {
-            "title": "Starter",
-            "description": "Get started with your first SaaS startup.",
-            "features_title": "Includes",
-            "features": [
-              "100 credits, valid for 1 month",
-              "NextJS boilerplate",
-              "SEO-friendly structure",
-              "Payment with Stripe",
-              "Data storage with Supabase",
-              "Google Oauth & One-Tap Login",
-              "i18n support"
+              "500 review credits per month",
+              "Standard, deep, and security review modes",
+              "ZIP repository upload up to 25 MB",
+              "Report history and risk scoring",
+              "Markdown and JSON exports"
             ],
             "interval": "month",
-            "amount": 8900,
+            "amount": 3900,
             "currency": "USD",
-            "price": "$89",
-            "original_price": "$99",
+            "price": "$39",
             "unit": "/ month",
             "is_featured": false,
-            "tip": "Pay monthly. Build unlimited projects!",
+            "tip": "Best for regular pre-release checks.",
             "button": {
-              "title": "Get ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "Start Starter",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
             "product_id": "starter-monthly",
-            "product_name": "ShipAny Boilerplate Starter Monthly",
-            "credits": 100,
+            "product_name": "CodeReview AI Starter Monthly",
+            "credits": 500,
             "valid_days": 30,
             "group": "monthly",
             "plan_name": "Starter"
           },
           {
-            "title": "Standard",
-            "description": "Ship Fast with your SaaS Startups.",
+            "title": "Team",
+            "description": "For startup engineering teams that review multiple services.",
             "label": "Popular",
             "features_title": "Everything in Starter, plus",
             "features": [
-              "200 credits, valid for 1 month",
-              "Deploy with Vercel or Cloudflare",
-              "Generation of Privacy & Terms",
-              "Google Analytics Integration",
-              "Google Search Console Integration",
-              "Discord community",
-              "Technical support for your first ship",
-              "Lifetime updates"
+              "2,000 review credits per month",
+              "More room for deep cross-file reviews",
+              "Security-focused review workflow",
+              "Human confirmation states for every finding",
+              "Billing, credits ledger, and payment records"
             ],
             "interval": "month",
-            "amount": 16900,
+            "amount": 9900,
             "currency": "USD",
-            "price": "$169",
-            "original_price": "$199",
+            "price": "$99",
             "unit": "/ month",
             "is_featured": true,
-            "tip": "Pay monthly. Ship Fast with your SaaS Startups.",
+            "tip": "Balanced for weekly release cycles.",
             "button": {
-              "title": "Get ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "Start Team",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
-            "product_id": "standard-monthly",
-            "product_name": "ShipAny Boilerplate Standard Monthly",
-            "credits": 200,
+            "product_id": "team-monthly",
+            "product_name": "CodeReview AI Team Monthly",
+            "credits": 2000,
             "valid_days": 30,
             "group": "monthly",
-            "plan_name": "Standard"
+            "plan_name": "Team"
           },
           {
-            "title": "Premium",
-            "description": "Ship Any AI SaaS Startups.",
-            "features_title": "Everything in Standard, plus",
+            "title": "Pro",
+            "description": "For teams running deeper checks across many repositories.",
+            "features_title": "Everything in Team, plus",
             "features": [
-              "300 credits, valid for 1 month",
-              "Business Functions with AI",
-              "User Center",
-              "Credits System",
-              "API Sales for your SaaS",
-              "Admin System",
-              "Priority Technical Support"
+              "7,000 review credits per month",
+              "Designed for frequent deep and security reviews",
+              "Longer review history for audit preparation",
+              "Structured reports for engineering leadership",
+              "Priority room for future Git and CI integrations"
             ],
             "interval": "month",
             "amount": 24900,
             "currency": "USD",
             "price": "$249",
-            "original_price": "$299",
             "unit": "/ month",
             "is_featured": false,
-            "tip": "Pay monthly. Ship Any AI SaaS Startups.",
+            "tip": "For heavier review throughput.",
             "button": {
-              "title": "Get ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "Start Pro",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
-            "product_id": "premium-monthly",
-            "product_name": "ShipAny Boilerplate Premium Monthly",
-            "credits": 300,
+            "product_id": "pro-monthly",
+            "product_name": "CodeReview AI Pro Monthly",
+            "credits": 7000,
             "valid_days": 30,
             "group": "monthly",
-            "plan_name": "Premium"
+            "plan_name": "Pro"
           },
           {
             "title": "Starter",
-            "description": "Get started with your first SaaS startup.",
+            "description": "Annual review budget for one active product team.",
             "features_title": "Includes",
             "features": [
-              "100 credits, valid for 1 year",
-              "NextJS boilerplate",
-              "SEO-friendly structure",
-              "Payment with Stripe",
-              "Data storage with Supabase",
-              "Google Oauth & One-Tap Login",
-              "i18n support"
+              "6,000 review credits per year",
+              "Standard, deep, and security review modes",
+              "ZIP repository upload up to 25 MB",
+              "Report history and risk scoring",
+              "Markdown and JSON exports"
             ],
             "interval": "year",
-            "amount": 82800,
+            "amount": 37200,
             "currency": "USD",
-            "price": "$69",
-            "original_price": "$89",
+            "price": "$31",
+            "original_price": "$39",
             "unit": "/ month",
             "is_featured": false,
-            "tip": "Pay annually. Build unlimited projects!",
+            "tip": "Billed yearly at $372.",
             "button": {
-              "title": "Get ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "Start Starter",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
             "product_id": "starter-yearly",
-            "product_name": "ShipAny Boilerplate Starter Annually",
-            "credits": 1200,
+            "product_name": "CodeReview AI Starter Yearly",
+            "credits": 6000,
             "valid_days": 365,
             "group": "yearly",
             "plan_name": "Starter"
           },
           {
-            "title": "Standard",
-            "description": "Ship Fast with your SaaS Startups.",
+            "title": "Team",
+            "description": "Annual budget for teams reviewing several repositories.",
             "label": "Popular",
             "features_title": "Everything in Starter, plus",
             "features": [
-              "200 credits, valid for 1 year",
-              "Deploy with Vercel or Cloudflare",
-              "Generation of Privacy & Terms",
-              "Google Analytics Integration",
-              "Google Search Console Integration",
-              "Discord community",
-              "Technical support for your first ship",
-              "Lifetime updates"
+              "24,000 review credits per year",
+              "More room for deep cross-file reviews",
+              "Security-focused review workflow",
+              "Human confirmation states for every finding",
+              "Billing, credits ledger, and payment records"
             ],
             "interval": "year",
-            "amount": 154800,
+            "amount": 94800,
             "currency": "USD",
-            "price": "$129",
-            "original_price": "$169",
+            "price": "$79",
+            "original_price": "$99",
             "unit": "/ month",
             "is_featured": true,
-            "tip": "Pay annually. Ship Fast with your SaaS Startups.",
+            "tip": "Billed yearly at $948.",
             "button": {
-              "title": "Get ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "Start Team",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
-            "product_id": "standard-yearly",
-            "product_name": "ShipAny Boilerplate Standard Annually",
-            "credits": 2400,
+            "product_id": "team-yearly",
+            "product_name": "CodeReview AI Team Yearly",
+            "credits": 24000,
             "valid_days": 365,
             "group": "yearly",
-            "plan_name": "Standard"
+            "plan_name": "Team"
           },
           {
-            "title": "Premium",
-            "description": "Ship Any AI SaaS Startups.",
-            "features_title": "Everything in Standard, plus",
+            "title": "Pro",
+            "description": "Annual capacity for frequent deep and security reviews.",
+            "features_title": "Everything in Team, plus",
             "features": [
-              "300 credits, valid for 1 year",
-              "Business Functions with AI",
-              "User Center",
-              "Credits System",
-              "API Sales for your SaaS",
-              "Admin System",
-              "Priority Technical Support"
+              "84,000 review credits per year",
+              "Designed for frequent deep and security reviews",
+              "Longer review history for audit preparation",
+              "Structured reports for engineering leadership",
+              "Priority room for future Git and CI integrations"
             ],
             "interval": "year",
-            "amount": 226800,
+            "amount": 238800,
             "currency": "USD",
-            "price": "$189",
+            "price": "$199",
             "original_price": "$249",
             "unit": "/ month",
             "is_featured": false,
-            "tip": "Pay annually. Ship Any AI SaaS Startups.",
+            "tip": "Billed yearly at $2,388.",
             "button": {
-              "title": "Get ShipAny",
-              "url": "/#pricing",
-              "icon": "RiFlashlightFill"
+              "title": "Start Pro",
+              "url": "/pricing",
+              "icon": "CreditCard"
             },
-            "product_id": "premium-yearly",
-            "product_name": "ShipAny Boilerplate Premium Annually",
-            "credits": 3600,
+            "product_id": "pro-yearly",
+            "product_name": "CodeReview AI Pro Yearly",
+            "credits": 84000,
             "valid_days": 365,
             "group": "yearly",
-            "plan_name": "Premium"
+            "plan_name": "Pro"
+          },
+          {
+            "title": "100 credits",
+            "description": "A small buffer for one or two extra reviews.",
+            "features_title": "Good for",
+            "features": [
+              "10 standard reviews",
+              "4 deep reviews",
+              "5 security-focused reviews",
+              "Credits valid for 12 months"
+            ],
+            "interval": "one-time",
+            "amount": 1200,
+            "currency": "USD",
+            "price": "$12",
+            "unit": "",
+            "is_featured": false,
+            "tip": "Use when a sprint needs a few more checks.",
+            "button": {
+              "title": "Buy 100 credits",
+              "url": "/pricing",
+              "icon": "Zap"
+            },
+            "product_id": "credits-100",
+            "product_name": "CodeReview AI 100 Credits",
+            "credits": 100,
+            "valid_days": 365,
+            "group": "credits"
+          },
+          {
+            "title": "300 credits",
+            "description": "A practical pack for release week.",
+            "label": "Best value",
+            "features_title": "Good for",
+            "features": [
+              "30 standard reviews",
+              "12 deep reviews",
+              "15 security-focused reviews",
+              "Credits valid for 12 months"
+            ],
+            "interval": "one-time",
+            "amount": 2900,
+            "currency": "USD",
+            "price": "$29",
+            "unit": "",
+            "is_featured": true,
+            "tip": "Add credits without changing your plan.",
+            "button": {
+              "title": "Buy 300 credits",
+              "url": "/pricing",
+              "icon": "Zap"
+            },
+            "product_id": "credits-300",
+            "product_name": "CodeReview AI 300 Credits",
+            "credits": 300,
+            "valid_days": 365,
+            "group": "credits"
+          },
+          {
+            "title": "1,000 credits",
+            "description": "Extra review capacity for busy engineering teams.",
+            "features_title": "Good for",
+            "features": [
+              "100 standard reviews",
+              "40 deep reviews",
+              "50 security-focused reviews",
+              "Credits valid for 12 months"
+            ],
+            "interval": "one-time",
+            "amount": 7900,
+            "currency": "USD",
+            "price": "$79",
+            "unit": "",
+            "is_featured": false,
+            "tip": "Useful for audits and migration projects.",
+            "button": {
+              "title": "Buy 1,000 credits",
+              "url": "/pricing",
+              "icon": "Zap"
+            },
+            "product_id": "credits-1000",
+            "product_name": "CodeReview AI 1,000 Credits",
+            "credits": 1000,
+            "valid_days": 365,
+            "group": "credits"
           }
         ]
       }
     }
   },
   "messages": {
-    "current_plan": "Current Plan",
+    "current_plan": "Current plan",
     "processing": "Processing"
   }
 }

@@ -37,7 +37,7 @@ export function CodeReviewReportView({
 
   return (
     <div className="space-y-6">
-      <Card>
+      <Card className="border-primary/15 bg-card/95 shadow-primary/5 shadow-sm">
         <CardHeader className="flex flex-wrap items-start gap-3">
           <div className="min-w-0 flex-1">
             <CardTitle>{labels.title}</CardTitle>
@@ -60,7 +60,7 @@ export function CodeReviewReportView({
           {report ? (
             <>
               <div className="grid gap-4 md:grid-cols-3">
-                <div className="border-border rounded-md border p-4">
+                <div className="from-primary/10 to-background rounded-lg border bg-linear-to-br p-4">
                   <div className="text-muted-foreground text-xs">
                     {labels.riskScore}
                   </div>
@@ -68,7 +68,7 @@ export function CodeReviewReportView({
                     {report.riskScore}
                   </div>
                 </div>
-                <div className="border-border rounded-md border p-4">
+                <div className="from-primary/10 to-background rounded-lg border bg-linear-to-br p-4">
                   <div className="text-muted-foreground text-xs">
                     {labels.reviewedFiles}
                   </div>
@@ -76,7 +76,7 @@ export function CodeReviewReportView({
                     {files.filter((file) => file.included).length}
                   </div>
                 </div>
-                <div className="border-border rounded-md border p-4">
+                <div className="from-primary/10 to-background rounded-lg border bg-linear-to-br p-4">
                   <div className="text-muted-foreground text-xs">
                     {labels.ignoredFiles}
                   </div>
@@ -86,8 +86,8 @@ export function CodeReviewReportView({
                 </div>
               </div>
               <p className="text-sm leading-6">{report.executiveSummary}</p>
-              <div className="bg-muted/40 rounded-md p-4">
-                <pre className="whitespace-pre-wrap text-sm leading-6">
+              <div className="border-border bg-muted/35 rounded-lg border p-4">
+                <pre className="text-sm leading-6 whitespace-pre-wrap">
                   {report.summaryMarkdown}
                 </pre>
               </div>
@@ -101,7 +101,7 @@ export function CodeReviewReportView({
       </Card>
 
       {ignoredFiles.length > 0 && (
-        <Card>
+        <Card className="border-primary/15 bg-card/95 shadow-primary/5 shadow-sm">
           <CardHeader>
             <CardTitle>{labels.ignoredTitle}</CardTitle>
             <CardDescription>{labels.ignoredDescription}</CardDescription>
@@ -111,7 +111,7 @@ export function CodeReviewReportView({
               {ignoredFiles.map((file) => (
                 <div
                   key={file.path}
-                  className="border-border flex gap-2 rounded-md border p-2"
+                  className="border-border bg-background/70 flex gap-2 rounded-lg border p-2"
                 >
                   <span className="min-w-0 flex-1 truncate">{file.path}</span>
                   <span className="text-muted-foreground">

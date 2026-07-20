@@ -1,0 +1,20 @@
+<svg width="760" height="590" viewBox="0 0 760 590" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Low noise findings</title>
+  <desc id="desc">A code review signal filtering illustration showing duplicates and low confidence findings reduced into a focused queue.</desc>
+  <rect width="760" height="590" rx="28" fill="#F8FAFC"/>
+  <rect x="58" y="58" width="644" height="474" rx="24" fill="white" stroke="#E2E8F0"/>
+  <text x="96" y="116" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">Noise control</text>
+  <g opacity="0.78">
+    <rect x="96" y="160" width="214" height="42" rx="12" fill="#FEE2E2"/>
+    <rect x="96" y="218" width="214" height="42" rx="12" fill="#FEF3C7"/>
+    <rect x="96" y="276" width="214" height="42" rx="12" fill="#E0F2FE"/>
+    <rect x="96" y="334" width="214" height="42" rx="12" fill="#F1F5F9"/>
+    <rect x="96" y="392" width="214" height="42" rx="12" fill="#F1F5F9"/>
+  </g>
+  <path d="M348 180H432M348 238H432M348 296H432M348 354H432M348 412H432" stroke="#CBD5E1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M432 180C486 180 486 296 538 296M432 238C486 238 486 296 538 296M432 296H538M432 354C486 354 486 296 538 296M432 412C486 412 486 296 538 296" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/>
+  <rect x="538" y="226" width="126" height="140" rx="18" fill="#F0FDF4" stroke="#86EFAC"/>
+  <circle cx="601" cy="270" r="24" fill="#22C55E"/>
+  <path d="M589 270L598 279L614 260" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="568" y="326" fill="#166534" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Focused</text>
+</svg>

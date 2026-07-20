@@ -18,6 +18,11 @@
           "icon": "Workflow"
         },
         {
+          "title": "Pricing",
+          "url": "/pricing",
+          "icon": "CreditCard"
+        },
+        {
           "title": "Review workspace",
           "url": "/activity/code-reviews",
           "icon": "Code2"
@@ -27,7 +32,7 @@
     "buttons": [],
     "user_nav": {
       "show_name": true,
-      "show_credits": false,
+      "show_credits": true,
       "show_sign_out": true,
       "items": [
         {
@@ -69,6 +74,11 @@
               "target": "_self"
             },
             {
+              "title": "Pricing",
+              "url": "/pricing",
+              "target": "_self"
+            },
+            {
               "title": "Review workspace",
               "url": "/activity/code-reviews",
               "target": "_self"
@@ -93,6 +103,7 @@
       ]
     },
     "show_theme": true,
-    "show_locale": true
+    "show_locale": true,
+    "show_built_with": false
   }
 }

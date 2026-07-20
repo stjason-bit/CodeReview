@@ -6,6 +6,21 @@
         "title": "Profile",
         "url": "/settings/profile",
         "icon": "User"
+      },
+      {
+        "title": "Billing",
+        "url": "/settings/billing",
+        "icon": "CreditCard"
+      },
+      {
+        "title": "Credits",
+        "url": "/settings/credits",
+        "icon": "Coins"
+      },
+      {
+        "title": "Payments",
+        "url": "/settings/payments",
+        "icon": "ReceiptText"
       }
     ]
   },
@@ -20,6 +35,16 @@
         "title": "Profile",
         "url": "/settings/profile",
         "icon": "User"
+      },
+      {
+        "title": "Billing",
+        "url": "/settings/billing",
+        "icon": "CreditCard"
+      },
+      {
+        "title": "Credits",
+        "url": "/settings/credits",
+        "icon": "Coins"
       }
     ]
   }

@@ -6,6 +6,21 @@
         "title": "个人资料",
         "url": "/settings/profile",
         "icon": "User"
+      },
+      {
+        "title": "账单",
+        "url": "/settings/billing",
+        "icon": "CreditCard"
+      },
+      {
+        "title": "积分",
+        "url": "/settings/credits",
+        "icon": "Coins"
+      },
+      {
+        "title": "支付记录",
+        "url": "/settings/payments",
+        "icon": "ReceiptText"
       }
     ]
   },
@@ -20,6 +35,16 @@
         "title": "个人资料",
         "url": "/settings/profile",
         "icon": "User"
+      },
+      {
+        "title": "账单",
+        "url": "/settings/billing",
+        "icon": "CreditCard"
+      },
+      {
+        "title": "积分",
+        "url": "/settings/credits",
+        "icon": "Coins"
       }
     ]
   }

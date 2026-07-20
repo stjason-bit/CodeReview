@@ -1,0 +1,20 @@
+<svg width="760" height="590" viewBox="0 0 760 590" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Safe code indexing</title>
+  <desc id="desc">A secure code indexing illustration showing archive limits, ignored files, and no execution boundaries.</desc>
+  <rect width="760" height="590" rx="28" fill="#F8FAFC"/>
+  <rect x="58" y="58" width="644" height="474" rx="24" fill="white" stroke="#E2E8F0"/>
+  <text x="96" y="116" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">Safe indexing</text>
+  <rect x="106" y="166" width="250" height="284" rx="20" fill="#0F172A"/>
+  <text x="134" y="214" fill="#93C5FD" font-family="Consolas, monospace" font-size="16">project.zip</text>
+  <text x="134" y="252" fill="#CBD5E1" font-family="Consolas, monospace" font-size="14">src/api/checkout.ts</text>
+  <text x="134" y="286" fill="#CBD5E1" font-family="Consolas, monospace" font-size="14">src/auth/session.ts</text>
+  <text x="134" y="320" fill="#FCA5A5" font-family="Consolas, monospace" font-size="14">node_modules/</text>
+  <text x="134" y="354" fill="#FCA5A5" font-family="Consolas, monospace" font-size="14">dist/</text>
+  <text x="134" y="388" fill="#86EFAC" font-family="Consolas, monospace" font-size="14">report.json</text>
+  <path d="M394 308H538" stroke="#CBD5E1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M526 292L546 308L526 324" stroke="#CBD5E1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="548" y="202" width="106" height="212" rx="20" fill="#ECFDF5" stroke="#A7F3D0"/>
+  <path d="M601 236L636 252V292C636 342 612 374 601 382C590 374 566 342 566 292V252L601 236Z" fill="#22C55E"/>
+  <path d="M584 300L596 312L619 282" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="574" y="448" fill="#166534" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">No execution</text>
+</svg>

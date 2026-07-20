@@ -2,6 +2,7 @@
   "page": {
     "show_sections": [
       "hero",
+      "stats",
       "introduce",
       "workflow",
       "benefits",
@@ -12,15 +13,15 @@
     "sections": {
       "hero": {
         "id": "hero",
-        "title": "把代码仓库变成可执行的审查结论，而不是一屏评论",
-        "highlight_text": "可执行的审查结论",
-        "description": "CodeReview AI 将确定性规则与跨文件 LLM 推理结合，再通过人工确认和实时导出形成完整闭环。",
+        "title": "面向创业工程团队的 AI 代码审查",
+        "highlight_text": "AI 代码审查",
+        "description": "CodeReview AI 将仓库快照转化为有优先级的问题、风险评分、人工确认决策和可导出报告，让高风险代码在进入生产前被看见。",
         "announcement": {
-          "badge": "MVP",
-          "title": "ZIP 仓库审查已可用",
+          "badge": "已上线",
+          "title": "现在就审查一个仓库快照",
           "url": "/activity/code-reviews"
         },
-        "tip": "系统只读取代码文本，不执行上传项目，也不会安装项目依赖。",
+        "tip": "上传代码仅作为文本审查。系统不会执行项目文件，也不会安装项目依赖。",
         "buttons": [
           {
             "title": "发起代码审查",
@@ -30,37 +31,76 @@
             "variant": "default"
           },
           {
-            "title": "查看工作流程",
-            "icon": "Workflow",
-            "url": "/#workflow",
+            "title": "查看价格",
+            "icon": "CreditCard",
+            "url": "/pricing",
             "target": "_self",
             "variant": "outline"
           }
         ],
+        "image": {
+          "src": "/imgs/code-review/hero-dashboard.svg",
+          "alt": "CodeReview AI 仓库审查工作台",
+          "width": 1440,
+          "height": 900
+        },
+        "image_invert": {
+          "src": "/imgs/code-review/hero-dashboard.svg",
+          "alt": "CodeReview AI 仓库审查工作台",
+          "width": 1440,
+          "height": 900
+        },
+        "background_image": {
+          "src": "/imgs/code-review/hero-background.svg",
+          "alt": "代码审查信号网络"
+        },
         "show_avatars": false,
         "show_award": false,
         "show_bg": true
+      },
+      "stats": {
+        "id": "stats",
+        "title": "围绕真实审查预算设计",
+        "description": "当前产品聚焦受控仓库快照、清晰积分消耗，以及可重复的工程决策流程。",
+        "items": [
+          {
+            "title": "3",
+            "description": "标准、深度、安全优先三种审查模式"
+          },
+          {
+            "title": "25 MB",
+            "description": "单次 ZIP 仓库快照大小上限，保持审查范围可控"
+          },
+          {
+            "title": "1,200",
+            "description": "单次仓库快照索引文件上限，过滤后进入审查"
+          }
+        ]
       },
       "introduce": {
         "block": "features-list",
         "id": "introduce",
         "title": "一条审查流水线，两类互补信号",
         "label": "工作原理",
-        "description": "快速、可解释的规则先识别确定性模式，LLM 再结合仓库上下文分析跨模块行为和数据边界。",
+        "description": "快速、可解释的规则先捕获确定性问题，LLM 再结合仓库上下文分析跨模块行为和数据边界。",
+        "image": {
+          "src": "/imgs/code-review/review-pipeline.svg",
+          "alt": "CodeReview AI 审查流水线"
+        },
         "items": [
           {
             "title": "确定性规则扫描",
-            "description": "发现疑似凭据、动态执行、诊断抑制、未完成标记和大段重复逻辑，并保留规则证据。",
+            "description": "识别疑似凭据、危险动态执行、诊断抑制、未完成标记和大段重复代码，并保留规则证据。",
             "icon": "ListChecks"
           },
           {
             "title": "仓库级 LLM 审查",
-            "description": "识别技术栈，分组审查文件，并对 API、鉴权、持久化、权限和支付执行独立跨文件分析。",
+            "description": "识别技术栈，分组审查文件，并对 API、鉴权、持久化、权限和支付执行跨文件分析。",
             "icon": "BrainCircuit"
           },
           {
             "title": "人工确认报告",
-            "description": "将问题标记为待处理、需确认、已忽略或已修复，风险分与导出始终反映最新状态。",
+            "description": "将问题标记为待处理、需确认、已忽略或已修复，风险分与导出始终反映最新确认状态。",
             "icon": "UserCheck"
           }
         ],
@@ -69,12 +109,12 @@
       "workflow": {
         "block": "features-step",
         "id": "workflow",
-        "title": "从代码提交到结果回写的可见闭环",
+        "title": "从上传到导出的可见审查闭环",
         "description": "每个阶段都有明确目标，并为下一步决策留下证据。",
         "text_align": "center",
         "items": [
           {
-            "title": "1. 代码提交",
+            "title": "1. 提交代码",
             "description": "上传 ZIP 仓库快照，选择标准、深度或安全优先审查。",
             "icon": "FileArchive"
           },
@@ -100,11 +140,11 @@
           },
           {
             "title": "6. 人工确认",
-            "description": "工程师核验不确定项，并将问题标为待处理、已忽略或已修复。",
+            "description": "工程师核验不确定项，并将问题标记为待处理、已忽略或已修复。",
             "icon": "UserCheck"
           },
           {
-            "title": "7. 结果回写",
+            "title": "7. 导出结果",
             "description": "持久化确认结果，并按当前风险状态实时导出 Markdown 或 JSON。",
             "icon": "RefreshCcw"
           }
@@ -113,24 +153,37 @@
       "benefits": {
         "block": "features-accordion",
         "id": "benefits",
-        "title": "为有效信号、安全边界与工程决策而设计",
+        "show_side_decoration": false,
+        "title": "为有效信号、安全边界和工程决策而设计",
         "label": "审查质量",
-        "description": "MVP 更重视可追溯证据和受控范围，而不是制造大量猜测性问题。",
+        "description": "产品更重视可追溯证据和受控范围，而不是制造大量猜测性问题。",
         "items": [
           {
             "title": "低噪声设计",
             "description": "透明展示忽略文件，合并重复发现，并把低置信度问题交给人工确认。",
-            "icon": "Filter"
+            "icon": "Filter",
+            "image": {
+              "src": "/imgs/code-review/noise-filter.svg",
+              "alt": "低噪声代码审查问题队列"
+            }
           },
           {
             "title": "跨文件推理",
-            "description": "把关键 API、鉴权、权限、支付、Schema 与模型文件放在同一上下文中审查。",
-            "icon": "Network"
+            "description": "把关键 API、鉴权、权限、支付、Schema 与模型文件放在同一个上下文中审查。",
+            "icon": "Network",
+            "image": {
+              "src": "/imgs/code-review/cross-file-context.svg",
+              "alt": "围绕关键模块的跨文件推理"
+            }
           },
           {
             "title": "不执行上传代码",
             "description": "服务不会运行项目代码、安装项目依赖，也不会通过公开目录暴露上传源码。",
-            "icon": "ShieldCheck"
+            "icon": "ShieldCheck",
+            "image": {
+              "src": "/imgs/code-review/safe-index.svg",
+              "alt": "不执行上传代码的安全索引"
+            }
           }
         ]
       },
@@ -146,12 +199,12 @@
           },
           {
             "title": "安全与权限",
-            "description": "凭据暴露、注入入口、鉴权边界和访问控制风险。",
+            "description": "凭据暴露、注入口、鉴权边界和访问控制风险。",
             "icon": "ShieldAlert"
           },
           {
             "title": "规范性",
-            "description": "诊断抑制、未完成标记和影响维护性的工程规范。",
+            "description": "诊断抑制、未完成标记和影响可维护性的工程规范。",
             "icon": "ListChecks"
           },
           {
@@ -173,28 +226,28 @@
       },
       "faq": {
         "id": "faq",
-        "title": "代码审查 MVP 常见问题",
+        "title": "代码审查产品常见问题",
         "description": "边界清晰，报告才更值得信任。",
         "items": [
           {
+            "question": "积分如何消耗？",
+            "answer": "标准审查消耗 10 积分，安全优先审查消耗 20 积分，深度审查消耗 25 积分。工作台会在开始前检查余额，并且只在审查成功后扣除积分。"
+          },
+          {
             "question": "服务会执行上传的代码吗？",
-            "answer": "不会。MVP 只在内存中读取受限大小的 ZIP 快照，过滤文件、脱敏常见密钥模式，并只把选中的代码文本发送给配置的审查模型。"
+            "answer": "不会。CodeReview AI 只读取受限大小的 ZIP 快照，过滤文件、脱敏常见密钥模式，并只把选中的源码文本发给配置的审查模型。"
           },
           {
             "question": "规则扫描覆盖哪些内容？",
             "answer": "当前覆盖疑似凭据、危险动态执行、原始 HTML 渲染、空 catch、静态分析抑制、未完成标记和跨文件大段重复。"
           },
           {
-            "question": "为什么必须人工确认？",
+            "question": "为什么需要人工确认？",
             "answer": "规则和 LLM 都可能需要业务上下文。人工状态会被持久化，并立即反映到风险分和导出报告中。"
           },
           {
-            "question": "哪些文件会被跳过？",
-            "answer": "依赖目录、构建产物、缓存、二进制资源、压缩包、超大文件、危险路径和符号链接会被忽略，并在报告中列明。"
-          },
-          {
             "question": "可以审查 GitHub Pull Request 吗？",
-            "answer": "当前 MVP 审查 ZIP 仓库快照。GitHub App 和 PR 结果回写会在后续集成阶段实现。"
+            "answer": "当前产品审查 ZIP 仓库快照。GitHub App 和 PR 结果回写会在后续集成阶段实现。"
           }
         ]
       },
@@ -208,6 +261,13 @@
             "url": "/activity/code-reviews",
             "target": "_self",
             "icon": "ScanSearch"
+          },
+          {
+            "title": "比较价格方案",
+            "url": "/pricing",
+            "target": "_self",
+            "icon": "CreditCard",
+            "variant": "outline"
           }
         ],
         "className": "bg-muted"

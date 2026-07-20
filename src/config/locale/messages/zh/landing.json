@@ -13,9 +13,14 @@
           "icon": "ScanSearch"
         },
         {
-          "title": "工作流程",
+          "title": "工作流",
           "url": "/#workflow",
           "icon": "Workflow"
+        },
+        {
+          "title": "价格",
+          "url": "/pricing",
+          "icon": "CreditCard"
         },
         {
           "title": "审查工作台",
@@ -27,7 +32,7 @@
     "buttons": [],
     "user_nav": {
       "show_name": true,
-      "show_credits": false,
+      "show_credits": true,
       "show_sign_out": true,
       "items": [
         {
@@ -50,7 +55,7 @@
     "id": "footer",
     "brand": {
       "title": "CodeReview AI",
-      "description": "聚焦规则扫描、跨文件推理、人工确认与可追溯导出的代码审查工作台。",
+      "description": "面向创业团队的 AI 代码审查工作台，聚焦规则扫描、跨文件推理、人工确认和可追溯导出。",
       "url": "/"
     },
     "nav": {
@@ -64,8 +69,13 @@
               "target": "_self"
             },
             {
-              "title": "工作流程",
+              "title": "工作流",
               "url": "/#workflow",
+              "target": "_self"
+            },
+            {
+              "title": "价格",
+              "url": "/pricing",
               "target": "_self"
             },
             {
@@ -93,6 +103,7 @@
       ]
     },
     "show_theme": true,
-    "show_locale": true
+    "show_locale": true,
+    "show_built_with": false
   }
 }

@@ -2,9 +2,9 @@
   "fields": {
     "subscription_no": "订阅号",
     "interval": "周期",
-    "provider": "提供商",
+    "provider": "支付服务商",
     "current_period": "当前周期",
-    "plan": "计划",
+    "plan": "方案",
     "status": "状态",
     "amount": "金额",
     "created_at": "创建时间",
@@ -12,12 +12,12 @@
     "action": "操作"
   },
   "view": {
-    "title": "当前计划",
+    "title": "当前方案",
     "tip": "你的订阅将在 {date} 自动续费",
     "end_tip": "你的订阅将在 {date} 自动取消",
-    "no_subscription": "未订阅",
+    "no_subscription": "暂无订阅",
     "buttons": {
-      "adjust": "调整计划",
+      "adjust": "调整方案",
       "subscribe": "去订阅",
       "manage": "管理订阅",
       "cancel": "取消订阅"
@@ -27,17 +27,17 @@
     "title": "订阅记录",
     "tabs": {
       "all": "全部",
-      "active": "活跃",
-      "pending_cancel": "待取消",
+      "active": "生效中",
+      "pending_cancel": "等待取消",
       "canceled": "已取消",
       "trialing": "试用中",
-      "paused": "暂停中",
+      "paused": "已暂停",
       "expired": "已过期"
     }
   },
   "cancel": {
     "title": "取消订阅",
-    "description": "你确定要取消你的订阅吗？",
+    "description": "确定要取消你的订阅吗？",
     "fields": {
       "subscription_no": "订阅号",
       "subscription_amount": "订阅金额",

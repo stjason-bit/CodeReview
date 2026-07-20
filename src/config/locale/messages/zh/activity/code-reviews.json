@@ -1,27 +1,67 @@
 {
+  "workspace": {
+    "badge": "审查工作台",
+    "title": "发起一次聚焦的仓库审查",
+    "description": "上传 ZIP 快照、选择审查深度，并在任务开始前清楚看到本次积分预算。",
+    "credits": "可用积分",
+    "reviews": "已生成审查",
+    "modes": "审查模式",
+    "modes_value": "标准 / 安全 / 深度",
+    "credits_unit": "积分"
+  },
   "pipeline": {
     "title": "审查流水线",
-    "description": "从仓库提交到人工确认、可导出结果的完整可见路径。",
-    "working": "请求会在仓库索引和审查期间保持连接，较大的仓库可能需要数分钟。",
+    "description": "从仓库提交到人工确认、可导出报告的完整可见流程。",
+    "working": "请求会在仓库索引和代码审查期间保持连接，较大的仓库可能需要几分钟。",
     "stages": [
-      { "title": "代码提交", "description": "上传 ZIP 快照并选择审查深度。" },
-      { "title": "安全索引", "description": "校验路径与限制、脱敏密钥并记录忽略文件。" },
-      { "title": "规则扫描", "description": "检查规范性、重复逻辑、安全信号与潜在风险。" },
-      { "title": "LLM 审查", "description": "建立仓库画像、分组审查并执行跨模块推理。" },
-      { "title": "问题分类", "description": "统一严重度、类别、置信度、证据与修复建议。" },
-      { "title": "人工确认", "description": "将问题标记为待处理、需确认、已忽略或已修复。" },
-      { "title": "结果回写", "description": "持久化决策，并导出最新 Markdown 或 JSON 报告。" }
+      {
+        "title": "提交代码",
+        "description": "上传 ZIP 快照并选择审查深度。"
+      },
+      {
+        "title": "安全索引",
+        "description": "校验路径与限制，脱敏密钥，并记录被忽略的文件。"
+      },
+      {
+        "title": "规则扫描",
+        "description": "检查规范性、重复逻辑、安全信号与潜在风险。"
+      },
+      {
+        "title": "LLM 审查",
+        "description": "建立仓库画像，分组审查文件，并执行跨模块推理。"
+      },
+      {
+        "title": "问题分类",
+        "description": "统一严重度、类别、置信度、证据与修复建议。"
+      },
+      {
+        "title": "人工确认",
+        "description": "将问题标记为待处理、需确认、已忽略或已修复。"
+      },
+      {
+        "title": "结果回写",
+        "description": "持久化决策，并导出最新 Markdown 或 JSON 报告。"
+      }
     ]
   },
   "upload": {
     "title": "发起代码审查",
-    "description": "上传项目 ZIP。服务只读取源码文本，不执行项目代码，也不安装项目依赖。",
+    "description": "上传项目 ZIP。服务只读取源代码文本，不执行项目代码，也不安装项目依赖。",
     "file": "项目 ZIP",
-    "file_hint": "仅支持 ZIP，最大 25 MB、1,200 个文件。",
+    "file_hint": "仅支持 ZIP，最大 25 MB，最多索引 1,200 个文件。",
     "mode": "审查深度",
-    "mode_standard": "标准审查 — 平衡覆盖范围",
-    "mode_deep": "深度审查 — 更多跨文件上下文",
-    "mode_security": "安全优先 — 鉴权、权限、数据与注入",
+    "mode_standard": "标准审查 - 平衡覆盖",
+    "mode_deep": "深度审查 - 更多跨文件上下文",
+    "mode_security": "安全优先 - 鉴权、权限、数据与注入风险",
+    "mode_standard_hint": "适合常规发布检查，覆盖信号和成本比较平衡。",
+    "mode_deep_hint": "适合较大改动和架构风险，会加入更多跨文件推理。",
+    "mode_security_hint": "重点检查鉴权、支付、API 暴露、数据泄露和权限边界。",
+    "credits_balance": "可用积分",
+    "credits_cost": "本次消耗",
+    "credits_after": "审查后剩余",
+    "credits_unit": "积分",
+    "insufficient_credits": "本次审查需要 {required} 积分，你当前有 {remaining} 积分。",
+    "buy_credits": "购买积分",
     "instructions": "项目补充要求",
     "instructions_placeholder": "例如：重点检查鉴权、数据库访问、支付流程、重复业务规则或生产可用性。",
     "submit": "生成审查报告",
@@ -33,7 +73,7 @@
   "list": {
     "title": "审查历史",
     "description": "共生成 {total} 份审查报告。",
-    "empty": "上传项目 ZIP，生成第一份代码审查报告。",
+    "empty": "上传项目 ZIP，生成你的第一份代码审查报告。",
     "open": "查看报告",
     "files": "已审查 {reviewed}/{total} 个文件",
     "mode_standard": "标准",
@@ -71,7 +111,7 @@
   },
   "findings": {
     "title": "问题与人工确认",
-    "description": "筛选问题、核验证据，并把确认状态回写到审查记录。",
+    "description": "筛选问题、核验证据，并把确认状态写回到审查记录。",
     "empty": "当前筛选条件下没有问题。",
     "search": "搜索标题或文件路径",
     "all_severities": "全部严重度",

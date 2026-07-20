@@ -15,7 +15,7 @@ export function Footer({ footer }: { footer: FooterType }) {
     <footer
       id={footer.id}
       className={`py-8 sm:py-8 ${footer.className || ''} overflow-x-hidden`}
-      // overflow-x-hidden防止-footer-撑出水平滚动条
+      // Keep footer content from creating horizontal page scroll.
     >
       <div className="container space-y-8 overflow-x-hidden">
         <div className="grid min-w-0 gap-12 md:grid-cols-5">

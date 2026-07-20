@@ -1,15 +1,19 @@
 import { generateId } from 'ai';
 
 import { extractZipProject } from '@/extensions/code-review/archive';
+import {
+  getCodeReviewCreditCost,
+  getCodeReviewCreditScene,
+  normalizeCodeReviewMode,
+} from '@/extensions/code-review/credits';
 import { EvolinkCodeReviewProvider } from '@/extensions/code-review/evolink';
 import { CODE_REVIEW_LIMITS } from '@/extensions/code-review/limits';
 import { runCodeReviewJob } from '@/extensions/code-review/runner';
 import {
   CodeReviewFindingStatus,
   CodeReviewJobStatus,
-  CodeReviewMode,
 } from '@/extensions/code-review/types';
-import { respData, respErr } from '@/shared/lib/resp';
+import { respData, respErr, respJson } from '@/shared/lib/resp';
 import {
   createCodeReviewFiles,
   createCodeReviewFindings,
@@ -21,6 +25,7 @@ import {
   NewCodeReviewFinding,
   updateCodeReviewJob,
 } from '@/shared/models/code_review';
+import { consumeCredits, getRemainingCredits } from '@/shared/models/credit';
 import { getUserInfo } from '@/shared/models/user';
 
 export async function GET(req: Request) {
@@ -58,7 +63,9 @@ export async function POST(req: Request) {
 
     const formData = await req.formData();
     const file = formData.get('file');
-    const mode = normalizeMode(String(formData.get('mode') || 'standard'));
+    const mode = normalizeCodeReviewMode(
+      String(formData.get('mode') || 'standard')
+    );
     const instructions = String(formData.get('instructions') || '');
 
     if (!(file instanceof File)) {
@@ -75,8 +82,19 @@ export async function POST(req: Request) {
       return respErr('instructions are too long');
     }
 
-    const model =
-      process.env.EVOLINK_CODE_REVIEW_MODEL || 'claude-sonnet-4-6';
+    const creditsCost = getCodeReviewCreditCost(mode);
+    const remainingCredits = await getRemainingCredits(user.id);
+    if (remainingCredits < creditsCost) {
+      return respJson(-1, 'insufficient_credits', {
+        error: 'insufficient_credits',
+        requiredCredits: creditsCost,
+        remainingCredits,
+        mode,
+        pricingUrl: '/pricing',
+      });
+    }
+
+    const model = process.env.EVOLINK_CODE_REVIEW_MODEL || 'claude-sonnet-4-6';
     const provider = new EvolinkCodeReviewProvider({
       apiKey: process.env.EVOLINK_API_KEY || '',
       baseUrl: process.env.EVOLINK_BASE_URL || 'https://direct.evolink.ai',
@@ -203,7 +221,28 @@ export async function POST(req: Request) {
       updatedAt: new Date(),
     });
 
-    return respData({ job: completedJob, report });
+    await consumeCredits({
+      userId: user.id,
+      credits: creditsCost,
+      scene: getCodeReviewCreditScene(mode),
+      description: `Code review: ${file.name} (${mode})`,
+      metadata: JSON.stringify({
+        type: 'code-review',
+        jobId: job.id,
+        mode,
+        archiveName: file.name,
+        includedFileCount: project.files.length,
+        model,
+      }),
+    });
+    const updatedRemainingCredits = await getRemainingCredits(user.id);
+
+    return respData({
+      job: completedJob,
+      report,
+      creditsCost,
+      remainingCredits: updatedRemainingCredits,
+    });
   } catch (e: any) {
     console.log('create code review failed:', e);
     if (jobId) {
@@ -219,15 +258,4 @@ export async function POST(req: Request) {
     }
     return respErr(`create code review failed: ${e.message}`);
   }
-}
-
-function normalizeMode(value: string): CodeReviewMode {
-  if (value === CodeReviewMode.Deep) {
-    return CodeReviewMode.Deep;
-  }
-  if (value === CodeReviewMode.Security) {
-    return CodeReviewMode.Security;
-  }
-
-  return CodeReviewMode.Standard;
 }
