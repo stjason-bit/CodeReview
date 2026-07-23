@@ -12,7 +12,6 @@ import {
 } from 'react';
 
 import { getAuthClient } from '@/core/auth/client';
-import { envConfigs } from '@/config';
 import { User } from '@/shared/models/user';
 
 export interface ContextValue {
@@ -42,8 +41,8 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const userRef = useRef<User | null>(null);
 
-  // is check sign (true during SSR and initial render to avoid hydration mismatch when auth is enabled)
-  const [isCheckSign, setIsCheckSign] = useState(!!envConfigs.auth_secret);
+  // true during SSR and initial render to avoid hydration mismatch while auth loads
+  const [isCheckSign, setIsCheckSign] = useState(true);
 
   // show sign modal
   const [isShowSignModal, setIsShowSignModal] = useState(false);

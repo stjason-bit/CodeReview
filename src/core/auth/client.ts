@@ -1,8 +1,6 @@
 import { oneTapClient } from 'better-auth/client/plugins';
 import { createAuthClient } from 'better-auth/react';
 
-import { envConfigs } from '@/config';
-
 function createGetSessionThrottledFetch({
   minIntervalMs,
 }: {
@@ -79,9 +77,17 @@ function createGetSessionThrottledFetch({
 const AUTH_GET_SESSION_MIN_INTERVAL_MS =
   Number(process.env.NEXT_PUBLIC_AUTH_GET_SESSION_MIN_INTERVAL_MS) || 2000;
 
+function getAuthBaseURL() {
+  if (typeof window !== 'undefined') {
+    return window.location.origin;
+  }
+
+  return undefined;
+}
+
 // create default auth client, without plugins
 export const authClient = createAuthClient({
-  baseURL: envConfigs.auth_url,
+  baseURL: getAuthBaseURL(),
   fetchOptions: {
     // Avoid amplifying request storms (e.g. during env/db switching in dev).
     // IMPORTANT: auth mutations (sign-in/sign-up) must be non-retriable,
@@ -99,7 +105,7 @@ export const { useSession, signIn, signUp, signOut } = authClient;
 // get auth client with plugins
 export function getAuthClient(configs: Record<string, string>) {
   const authClient = createAuthClient({
-    baseURL: envConfigs.auth_url,
+    baseURL: getAuthBaseURL(),
     plugins: getAuthPlugins(configs),
     fetchOptions: {
       // Avoid amplifying request storms (e.g. during env/db switching in dev).
