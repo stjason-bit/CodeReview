@@ -166,11 +166,5 @@
     "typescript": "^5",
     "vitest": "^4.1.10",
     "wrangler": "^4.34.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.2.2",
-      "@types/react-dom": "19.2.2"
-    }
   }
 }
